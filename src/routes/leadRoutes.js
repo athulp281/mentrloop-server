@@ -1,7 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const { postLead } = require("../controllers/leadController");
+const { postLead, getLeads } = require("../controllers/leadController");
+const { authenticate } = require("../middleware/authMiddleware");
 
-router.post("/lead", postLead); // Public route
+router.post("/lead", postLead);
+router.get("/get-all-leads", getLeads);
 
 module.exports = router;

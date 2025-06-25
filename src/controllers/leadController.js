@@ -9,3 +9,12 @@ exports.postLead = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
+
+exports.getLeads = async (req, res) => {
+  try {
+    const leads = await Lead.findAll();
+    res.status(200).json({ message: "success", leads });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
